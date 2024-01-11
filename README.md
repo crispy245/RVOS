@@ -1,5 +1,11 @@
 # 2023RVOS
 
+# Additions
+1) A Mutex library and UART now runs using Mutex
+2) A driver for Disk usage, a 90Megabyte image is added in the repo
+
+# PLEASE CHECK FOR 12-systemCal for additions, thank you :)
+
 # Linux 開發環境
 
 1. install crossed compiler(GCC)
