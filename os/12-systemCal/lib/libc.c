@@ -1,5 +1,7 @@
 #include "types.h"
 
+#define RAND_MAX 32767
+
 void *memset(void *ptr, int value, uint32_t num) {
     unsigned char *p = (unsigned char *) ptr;
     while (num-- > 0) {
@@ -25,4 +27,7 @@ int strcmp(const char *s1, const char *s2)
 			return (0);
 	return (*(const unsigned char *)s1 - *(const unsigned char *)(s2 - 1));
 }
+
+
+
 

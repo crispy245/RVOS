@@ -10,20 +10,25 @@ static void myDelay(int Delay) {
     for (unsigned long long i=0;i<Delay;i++);
 }
 
+// void user_task0(void *p)
+// {
+// 	DEBUG("Task 0: Created!\n");
+// 	uint32_t i=0;
+// 	while (1){
+// 		DEBUG("				Task 0: dalay...%d \n", i);
+// 		delay(2);
+// 		DEBUG("				Task 0: wakeup...%d \n", i++);		
+//         shareRoutine(0,10);
+// 		myDelay(DELAY);
+//         DEBUG("				return Task 0 \n");
+// 	}
+// }
 void user_task0(void *p)
 {
-	DEBUG("Task 0: Created!\n");
-	uint32_t i=0;
-	while (1){
-		DEBUG("				Task 0: dalay...%d \n", i);
-		delay(2);
-		DEBUG("				Task 0: wakeup...%d \n", i++);		
-        shareRoutine(0,10);
-		myDelay(DELAY);
-        DEBUG("				return Task 0 \n");
-	}
+	int x = rand();
+	virtio_tester(10);
+	delay(2);
 }
-
 void user_task1(void *p)
 {
 	DEBUG("Task 1: Created!\n");
@@ -93,20 +98,24 @@ void user_task4(void)
 }
 
 
+
+
 void loadTasks(void)
 {
-    taskCB_t *task0, *task1, *task2, *task3, *task4;
+    taskCB_t *task0, *task1, *task2, *task3, *task4, *task5;
     task0 = task_create("task0", user_task0, NULL, 1024, 9,200);
-    task1 = task_create("task1", user_task1, NULL, 1024, 11,200);
-    task2 = task_create("task2", user_task2, NULL, 1024, 11,200);
-    task3 = task_create("task3", user_task3, NULL, 1024, 10,200);
-    task4 = task_create("task4", user_task4, NULL, 1024, 9,200);
+    // task1 = task_create("task1", user_task1, NULL, 1024, 11,200);
+    // task2 = task_create("task2", user_task2, NULL, 1024, 11,200);
+    // task3 = task_create("task3", user_task3, NULL, 1024, 10,200);
+    // task4 = task_create("task4", user_task4, NULL, 1024, 9,200);
+	//task5 = task_create("random number",rand(),NULL,10,9,200);
     ipcTestInit();
 	
 	task_startup(task0);
-    task_startup(task1);
-    task_startup(task2);
-    task_startup(task3);
+    // task_startup(task1);
+    // task_startup(task2);
+    // task_startup(task3);
 	
-	task_startup(task4);
+	// task_startup(task4);
+	//task_startup(task5);
 }

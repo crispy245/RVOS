@@ -1,4 +1,4 @@
-include ../../common.mk
+include common.mk
 
 #startup
 SRCS_ASM += $(wildcard ./startup/*.S)

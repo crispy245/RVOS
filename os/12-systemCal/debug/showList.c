@@ -1,7 +1,7 @@
 #include "os.h"
 
 extern timerCB_t *TimerList;
-extern SemCB_t SEMTbl[];
+extern MutCB_t SEMTbl[];
 extern taskCB_t TCBTbl[];
 extern taskCB_t TCBRdy[];
 
@@ -38,7 +38,7 @@ void showRdyQ() {
 }
 
 void showSemQ(uint16_t semID) {
-    SemCB_t *psemcb = &SEMTbl[semID];
+    MutCB_t *psemcb = &SEMTbl[semID];
     list_t *pList = (list_t *)psemcb->node.next;
     kprintf("*******SEM Q******\n");
     while(pList != (list_t*)psemcb) {

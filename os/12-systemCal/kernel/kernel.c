@@ -21,6 +21,8 @@ void start_kernel(void)
 	plic_init();
 	trap_init();
 	drivers_init();
+	virtio_disk_init();
+	
 
 	timer_init();
 	softTimer_init(); //08
@@ -28,7 +30,7 @@ void start_kernel(void)
 	loadTasks();
 	sched_init();	
 	syscall_init();
-	
+	//lockfree_printf(rand());
 	INFO("OS is scheduling....\n");
 	schedule(); //idle task
 	INFO("Would not go here!\n");

@@ -17,6 +17,13 @@ static inline reg_t r_tp()
 	return x;
 }
 
+// static inline reg_t r_mcycle()
+// {
+// 	reg_t x;
+// 	asm volatile("csrr %0, mcycle" : "=r"(x));
+// 	return x;
+// }
+
 static inline reg_t r_mstatus()
 {
 	reg_t x;

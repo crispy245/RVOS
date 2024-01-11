@@ -164,6 +164,11 @@ typedef struct console_dev {
     spinlock_t lock;
 } console_t;
 
+typedef struct disk_dev {
+    deviceCB_t *dev;
+    spinlock_t lock;
+} disk_t;
+
 /* syscall*/
 void syscall_init();
 void syscall_register(uint16_t num, void *(*sysfunc)(void *p));

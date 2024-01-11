@@ -9,6 +9,7 @@
 #define MAX_TIMERS          256 //08
 #define MAX_SEM             256 //09 sem
 #define MAX_SEM_VALUE       1024 //09 sem
+#define MAX_MUT             256
 #define MAX_MBOXS           256
 #define MAX_EXTERNAL_INT    127
 #define MAX_SYSCALL         256

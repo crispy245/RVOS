@@ -12,6 +12,12 @@ typedef struct SemCB
     uint16_t      initialCounter;          /*!< Initial counter of semaphore.    */
 } SemCB_t;
 
+typedef struct MutCB
+{
+    list_t        node;                    /*!< Task waitting list.              */
+    uint16_t      id;                       /*!< ECB id                           */
+    uint8_t       mutCounter;
+} MutCB_t;
 
 typedef struct MboxCB
 {
